@@ -1,0 +1,23 @@
+'''M2_E_vector = Edge - circle.pos;
+            M2_E = mag(M2_E_vector);
+            M2_M1_dir = normalize(np.multiply(circle.velo, -1));
+            
+            sin_angle_M2 = np.cross(M2_E_vector, M2_M1_dir) / M2_E;
+            angle_M2 = math.asin(sin_angle_M2);
+            
+            ratio = circle.r / sin_angle_M2;
+            sin_angle_M1 = M2_E / ratio;
+            angle_M1 = math.asin(sin_angle_M1);
+
+            angle_E = np.pi - angle_M1 - angle_M2;
+            M2_M1 = ratio * math.sin(angle_E);
+            
+            push_vector = np.multiply(M2_M1_dir, M2_M1);
+            circle.pos = circle.pos + push_vector;
+            
+                                       #Werkt wel maar soms gekke bug leg ik later uit. 
+            E_M_vector = circle.pos - Edge;                 #Ik gebruik nu voor push_vector nieuwe snelheid richting.
+            push_vector_length = circle.r - mag(E_M_vector); #Hierdoor is met hoge snelheden clippen alleen wel mogelijk.
+            push_vector_dir = normalize(E_M_vector);
+            push_vector = np.multiply(push_vector_dir, push_vector_length);
+            circle.pos = circle.pos - push_vector;'''
